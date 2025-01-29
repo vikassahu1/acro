@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open PDF in Acrobat</title>
+</head>
+<body>
+    <h1>Open PDF in Acrobat</h1>
+    <button onclick="openPDF()">Open in Acrobat</button>
+
+    <script>
+        function openPDF() {
+            // URL where the PDF is hostedcccccc
+            const pdfURL = "http://127.0.0.1:8000/static/latest_cv.pdf";  
+            
+            // Acrobat protocol to open the PDF
+            const acrobatURL = `acrobat://open/?url=${encodeURIComponent(pdfURL)}`;
+
+            // Redirect to the acrobat:// URL
+            window.location.href = acrobatURL;
+
+            // Optional: Show a fallback message if Acrobat does not open
+            setTimeout(() => {
+                alert("If the PDF didn't open in Acrobat, ensure Acrobat is installed on your machine.");
+            }, 2000); // Give 2 seconds for Acrobat to handle the link
+        }
+    </script>
+</body>
+</html>
